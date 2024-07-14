@@ -1,13 +1,9 @@
+all: README.md
 
-echo "# testgit" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/bramadevi/testgit.git
-git push -u origin main
+README.md: guessinggame.sh
+	@echo "# Guessing Game" > README.md
+	@echo "\n**Date and Time:** $$(date)" >> README.md
+	@echo "\n**Number of lines in guessinggame.sh:** $$(wc -l < guessinggame.sh)" >> README.md
 
-
-git remote add origin https://github.com/bramadevi/testgit.git
-git branch -M main
-git push -u origin main
+clean:
+	rm -f README.md
